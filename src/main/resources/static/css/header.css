@@ -1,0 +1,123 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 500;
+    margin-bottom: 60px;
+    color: black;
+    font-size: 48px;
+
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 32px;
+    color: black;
+    margin-bottom: 50px;
+}
+
+h4 {
+    font-weight: 500;
+    font-size: 21px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+a {
+    font-size: 17px;
+    text-decoration: none;
+    font-family: 'Roboto';
+    padding: 0 10px;
+    color: #050505;
+    font-weight: 400;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+p {
+    margin: 0 auto;
+    line-height: 1.64em;
+}
+
+ul,
+li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.logo{
+    margin-left:40px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    background: #FFF;
+    z-index:1;
+}
+
+.nav {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu a {
+    margin-right: 42px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover {
+    color: #34547A;
+    font-weight: 500;
+}
+
+.logo img{
+width: 115px;
+height: 50px;
+}
+
+.social .icon{
+    width: 40px;
+}
+
+.social {
+display: flex;
+margin-right:40px;
+}

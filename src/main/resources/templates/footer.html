@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<footer id="footer" class="footer" th:fragment="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <select id="typeDay" style="width: 348px;">
+                            <option th:value=1 selected>Явка</option>
+                            <option th:value=2>Командировка</option>
+                            <option th:value=3>Отпуск рабочие дни</option>
+                            <option th:value=4>Отпуск выходные дни</option>
+                            <option th:value=5>Выходной</option>
+                            <option th:value=6>Административный отпуск</option>
+                            <option th:value=7>Больничный</option>
+                            <option th:value=8>Простой по вине работодателя</option>
+                            <option th:value=9>Ученический отпуск</option>
+                            <option th:value=10>Отдых за отработанное время</option>
+                            <option th:value=11>Больничный в командировке</option>
+                            <option th:value=12>Рабочий выходной</option>
+                        </select>
+                    </div>
+                    <div class="col-12 d-flex justify-content-start">
+                        <input id="check" type="checkbox">Применить
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-12 d-flex justify-content-end">
+                    <input type="button" class="submit" onclick="document.forms['hours'].submit();">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</footer>
+
+</body>
+</html>

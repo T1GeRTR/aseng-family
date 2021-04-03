@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div id="table-users" class="table-users pt130 pb130" th:fragment="users">
+    <div class="container">
+        <div class="table-users">
+            <div class="row">
+                <div class="col-1 border-color bgcolor-td">id</div>
+                <div class="col-3 border-color bgcolor-td">Фамилия</div>
+                <div class="col-3 border-color bgcolor-td">Имя</div>
+                <div class="col-3 border-color bgcolor-td">Email</div>
+                <div class="col-2 border-color bgcolor-td">Управление</div>
+            </div>
+            <div th:each="user : ${users}" class="row">
+                <div th:utext="${user.id}" class="col-1 border-color bgcolor-td">...</div>
+                <div th:utext="${user.lastname}" class="col-3  bg-td border-color">...</div>
+                <div th:utext="${user.firstname}" class="col-3 bg-td border-color">...</div>
+                <div th:utext="${user.email}" class="col-3 bg-td border-color">...</div>
+                <div class="col-2 bg-td border-color">...</div>
+            </div>
+            <form name="addUser" action="#" th:action="@{/user}"
+                  th:object="${user}" method="post" onsubmit="return false;">
+                <div class="row">
+                    <div style="text-align: center; padding: 0px;" class="col-1 border-color bgcolor-td">Добавить сотрудника</div>
+                    <div class="col-3 d-flex border-color align-items-center"><input type="text" id="lastname"
+                                                                                     th:value="${user.lastname}" th:field="*{lastname}"/></div>
+                    <div class="col-3 d-flex border-color align-items-center"><input type="text" id="firstname"
+                                                                                     th:value="${user.firstname}" th:field="*{firstname}"/></div>
+                    <div class="col-3 d-flex border-color align-items-center"><input type="email" id="email"
+                                                                                     th:value="${user.email}" th:field="*{email}"/>
+                    </div>
+                    <div class="col-2 d-flex border-color align-items-center"><input type="button" class="user-save"
+                                                                                     onclick="document.forms['addUser'].submit();">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

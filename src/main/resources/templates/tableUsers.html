@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div id="table-hours" class="table-hours pt130 pb130 " th:fragment="tableUsers">
+    <div class="container">
+        <table>
+            <tr>
+                <td class="td-left"></td>
+                <td class="bgcolor-td" th:each="dayOfWeek: ${weeks}">
+                    <p th:utext="${dayOfWeek}" th:class="${dayOfWeek == 'СБ'} OR ${dayOfWeek == 'ВС'}? weekEnd"></p>
+                </td>
+                <td class="td-right"></td>
+            </tr>
+            <tr>
+                <td class="bgcolor-td td-name" th:utext="${month} + '-' + ${year}"></td>
+                <td class="bgcolor-td" th:each="day: ${days}">
+                    <p th:utext="${day}"></p>
+                </td>
+                <td class="bgcolor-td" style="font-size: 25px">
+                    <p>Σ</p>
+                </td>
+            </tr>
+
+            <form name="hours" action="#" th:action="@{/hours/{month}-{year}(month=${month},year=${year})}"
+                  th:object="${users}" method="post" onsubmit="return false;">
+                <tr th:each="user, itemStat : *{userList}" class="tr-hours">
+                    <td class="bgcolor-td td-name" th:utext="${user.lastname} + ' ' + ${user.firstname}">...</td>
+                    <td th:each="day, itemStat1 : *{userList[__${itemStat.index}__].hours}">
+                        <input type="hidden"
+                               th:field="*{userList[__${itemStat.index}__].hours[__${itemStat1.index}__].id}">
+                        <input type="hidden"
+                               th:field="*{userList[__${itemStat.index}__].hours[__${itemStat1.index}__].user.id}">
+                        <input type="hidden"
+                               th:field="*{userList[__${itemStat.index}__].hours[__${itemStat1.index}__].date}">
+                        <input type="hidden"
+                               th:field="*{userList[__${itemStat.index}__].hours[__${itemStat1.index}__].type}">
+                        <!--                        <div class="div-save" th:if="${day.saved}">-->
+                        <input type="hidden"
+                               th:field="*{userList[__${itemStat.index}__].hours[__${itemStat1.index}__].hours}"
+                               class="input div-save" th:if="${day.saved}" onfocus="ChangeColor(this);">
+                        <!--                        </div>-->
+                        <!--                        <div class="div-not-save" th:if="${not day.saved}">-->
+                        <input type="hidden"
+                               th:field="*{userList[__${itemStat.index}__].hours[__${itemStat1.index}__].hours}"
+                               class="input div-not-save" th:if="${not day.saved}" onfocus="ChangeColor(this);">
+                        <!--                        </div>-->
+
+                    </td>
+                    <td class="bgcolor-td"><input type="hidden" th:value="${user.sumHours}" class="bgcolor-td sum"
+                                                  readonly></td>
+                </tr>
+            </form>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>
